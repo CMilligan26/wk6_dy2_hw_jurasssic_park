@@ -52,4 +52,20 @@ Park.prototype.removeBySpecies = function (species) {
   };
 };
 
+Park.prototype.totalNumberOfVisitorsPerDay = function () {
+  let totalNumberOfVisitorsPerDay = 0;
+  for (let dinosaur of this.dinosaurs) {
+      totalNumberOfVisitorsPerDay += dinosaur.guestsAttractedPerDay;
+  };
+  return totalNumberOfVisitorsPerDay;
+};
+
+Park.prototype.totalNumberOfVisitorsPerYear = function () {
+  return this.totalNumberOfVisitorsPerDay() * 365;
+};
+
+Park.prototype.totalRevenueFromTicketSalesForOneYear = function () {
+  return this.totalNumberOfVisitorsPerYear() * this.ticketPrice;
+};
+
 module.exports = Park;

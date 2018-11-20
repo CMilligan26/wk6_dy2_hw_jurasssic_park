@@ -55,4 +55,23 @@ describe('Park', function() {
     park.removeBySpecies('T-Rex')
     assert.deepStrictEqual([dinosaur2], park.dinosaurs);
   });
+
+  it('should be able to calculate the total number of visitors per day', function () {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(140, park.totalNumberOfVisitorsPerDay());
+  });
+
+  it('should be able to calculate the total number of visitors per year', function () {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(51100, park.totalNumberOfVisitorsPerYear());
+  });
+
+  it('should be able to calculate the total revenue from ticket sales for one year', function () {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(3577000, park.totalRevenueFromTicketSalesForOneYear());
+  });
+
 });
